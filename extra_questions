@@ -1,0 +1,54 @@
+1. Write Test Cases for the above.
+Ops User:
+Test successful login.
+Test file upload with allowed extensions (pptx, docx, xlsx).
+Test file upload with disallowed extensions (should fail).
+
+Client User:
+Test signup: Verify encrypted URL creation and email sending.
+Test email verification link (valid and invalid tokens).
+Test successful login.
+Test listing files.
+Test requesting a download link:
+Validate the download link is encrypted and unique per request.
+Deny access if the user is not a client.
+Test file download using the generated link:
+Allow download with valid token.
+Deny download with invalid or expired token.
+Negative tests for unauthorized access attempts.
+
+2.How do you plan on deploying this to the production environment?
+
+Containerization:
+Use Docker to containerize the app for environment consistency.
+
+Web Server:
+Use Gunicorn or uWSGI as the WSGI HTTP server.
+
+Reverse Proxy:
+Use Nginx to serve static files and proxy requests to the WSGI server securely.
+
+Database:
+Use a managed SQL or NoSQL database service with proper backups and encryption.
+
+Environment Variables:
+Store sensitive secrets (e.g., Django SECRET_KEY, email SMTP credentials) using environment variables or secret management tools.
+
+Security:
+Use HTTPS with SSL certificates.
+Implement Django security best practices (e.g., SECURE_SSL_REDIRECT, CSRF_COOKIE_SECURE).
+
+Scaling:
+Deploy on cloud platforms (AWS, GCP, Azure, DigitalOcean) to leverage scaling options.
+
+Monitoring & Logging:
+Set up centralized logging, error tracking (e.g., Sentry), and health monitoring.
+
+CI/CD Pipeline:
+Automate tests and deployment for integrated, continuous delivery.
+
+Email Service:
+Use a reliable email service provider (e.g., SendGrid, Amazon SES) for email verification.
+
+File Storage:
+Store uploaded files on cloud storage (S3, Azure Blob Storage) with secure access policies.
